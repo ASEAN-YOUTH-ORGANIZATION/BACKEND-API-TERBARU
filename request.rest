@@ -1,0 +1,74 @@
+# Testing Authorization
+GET http://localhost:3001/api/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiY2hyaXN0aWFuIiwiZnVsbG5hbWUiOiJDaHJpc3RpYW4iLCJyb2xlIjoxLCJpYXQiOjE2Njk3MDg1ODIsImV4cCI6MTY2OTcwODYwMn0.5_bY0e1UFn1zb94HK8U33KVV9a-id_tTQtUqvASupwg
+###
+
+
+# Authentication
+POST http://localhost:3001/api/auth/register/
+Content-Type: application/json
+
+{
+    "username":"user12345",
+    "password":"user12345",
+    "konfirmasi_password":"user12345",
+    "nama_lengkap":"user12345",
+    "email":"user12345@gmail.com",
+    "no_hp":"no_hp",
+    "jenis_kelamin":"pria",
+    "role":2
+}
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"christian",
+    "password":"christian" 
+}
+
+###
+POST http://localhost:3001/api/auth/refresh
+
+###
+POST http://localhost:3001/api/auth/logout
+
+
+
+# Pendaftar
+###
+GET http://localhost:3001/api/pendaftar
+###
+
+GET http://localhost:3001/api/pendaftar/2
+###
+POST http://localhost:3001/api/relawan
+Content-Type: application/json
+
+{
+    "id_user":"78467266-79e9-4030-bbd6-9d559ca702b7",    
+    "id_event":"720781d1-1eb5-4cf6-abec-4dc73a97af22",    
+    "link_id_card":"link_dokumen",    
+    "link_cv":"link_dokumen",    
+    "link_health_letter":"link_dokumen",    
+    "alasan":"alasan",
+    "status":"diproses"
+}
+
+###
+PUT http://localhost:3001/api/pendaftar/2
+Content-Type: application/json
+
+{
+    "nama":"nama pendaftar baru",    
+    "id_event":1,    
+    "nama_event":"nama event baru",    
+    "link_dokumen":"link dokumen baru",    
+    "no_hp":"no hp baru",
+    "email":"email baru",
+    "alasan":"alasan baru"
+}
+
+###
+DELETE http://localhost:3001/api/pendaftar/2
